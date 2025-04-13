@@ -13,17 +13,6 @@
 *.vb
 *.wsf
 
-### Text ###
-*.doc
-*.docx
-*.log
-*.msg
-*.pages
-*.rtf
-*.txt
-*.wpd
-*.wps
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json

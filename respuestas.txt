@@ -1,1 +1,2 @@
-No se puede ver el archivo tp1_1_2.c porque es un archivo que se creo en la rama "opcion_2" por lo tanto no aparecerá hasta que realice el merge 
+- No se puede ver el archivo tp1_1_2.c porque es un archivo que se creo en la rama "opcion_2" por lo tanto no aparecerá hasta que realice el merge 
+- La diferencia que se nota es que lo que esta en la rama main aparece de un color y lo de la rama opcion 2 esta en otro color, los commit que hice en la rama opcion 2 quedaron entre los commit de main
