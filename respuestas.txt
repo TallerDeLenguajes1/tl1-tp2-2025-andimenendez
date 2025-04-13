@@ -1,0 +1,1 @@
+No se puede ver el archivo tp1_1_2.c porque es un archivo que se creo en la rama "opcion_2" por lo tanto no aparecerá hasta que realice el merge 
