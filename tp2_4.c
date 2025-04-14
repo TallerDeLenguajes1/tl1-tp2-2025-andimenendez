@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <time.h>
 
-char tipos[6][10] ={"inteñ ","AMD","Celeron","Athion","core","Pentium"};
+char tipos[6][10] ={"intel ","AMD","Celeron","Athion","core","Pentium"};
 
 struct Compu
 {
@@ -25,7 +25,13 @@ void cargarCaracteristicasCompu(Compu *computadoras,int cantidad_pc){
     }
  }
 
-
+ void mostrarCaracteristicasPc(Compu pc){
+    printf("\tVelocidad: %d GHz\n", pc.velocidad);
+    printf("\tAnio: %d\n", pc.anio);
+    printf("\tCantidad de nucleos: %d\n", pc.cantidad_nucleos);
+    printf("\tTipo CPU: %s\n", pc.tipo_cpu); 
+    printf("\n");
+}
 void listarPcs(Compu pcs[],int cantidad){
     printf("*****Listado de computadoras******\n");
     for (int i = 0; i < cantidad; i++)
@@ -36,42 +42,57 @@ void listarPcs(Compu pcs[],int cantidad){
     
 }
 
-void mostrarCaracteristicasPc(Compu pc){
-    printf("\tVelocidad:%d\n",pc.velocidad);
-    printf("\tAnio:%d\n",pc.anio);
-    printf("\tCantidad de nucleos:%d\n",pc.cantidad_nucleos);
-    printf("\tTipo CPU:%d\n",pc.tipo_cpu);
-    printf("\n");
-}
 
-void mostrarMasNueva(Compu pcs[],int cantidad){
+void mostrarMasNueva(Compu pcs[], int cantidad){
     int anio_mas_nueva = 0;
     int index_pc_mas_nueva = 0;
-    for (int i = 0; i < cantidad; i++)
-    {
-      if (pcs[i].anio > anio_mas_nueva){
-        anio_mas_nueva = pcs[i].anio;
-        index_pc_mas_nueva= i;
-      }
-      printf("pc mas nueva: \n");
-      mostrarCaracteristicasPc(pcs[index_pc_mas_nueva]);
+
+    for (int i = 0; i < cantidad; i++) {
+        if (pcs[i].anio > anio_mas_nueva) {
+            anio_mas_nueva = pcs[i].anio;
+            index_pc_mas_nueva = i;
+        }
     }
-    
+
+    printf("PC más nueva:\n");
+    mostrarCaracteristicasPc(pcs[index_pc_mas_nueva]);
 }
-void mostrarMasVieja(Compu pcs[],int cantidad){
+
+void mostrarMasVieja(Compu pcs[], int cantidad){
     int anio_mas_vieja = 9999;
     int index_pc_mas_vieja = 0;
-    for (int i = 0; i < cantidad; i++)
-    {
-      if (pcs[i].anio < anio_mas_vieja){
-        anio_mas_vieja = pcs[i].anio;
-        index_pc_mas_vieja= i;
-      }
-      printf("pc mas vieja : \n");
-      mostrarCaracteristicasPc(pcs[index_pc_mas_vieja]);
-    }
-    
-}
-int main (){
 
+    for (int i = 0; i < cantidad; i++) {
+        if (pcs[i].anio < anio_mas_vieja) {
+            anio_mas_vieja = pcs[i].anio;
+            index_pc_mas_vieja = i;
+        }
+    }
+
+    printf("PC más vieja:\n");
+    mostrarCaracteristicasPc(pcs[index_pc_mas_vieja]);
+}
+
+void mostrarMasVeloz(Compu pcs[], int cantidad){
+    int velocidad_maxima = 0;
+    int index_pc_mas_rapida = 0;
+
+    for (int i = 0; i < cantidad; i++) {
+        if (pcs[i].velocidad > velocidad_maxima) {
+            velocidad_maxima = pcs[i].velocidad;
+            index_pc_mas_rapida = i;
+        }
+    }
+
+    printf("PC con mayor velocidad:\n");
+    mostrarCaracteristicasPc(pcs[index_pc_mas_rapida]);
+}
+
+int main (){
+ Compu computadoras[5];
+ cargarCaracteristicasCompu(computadoras,5);
+ listarPcs(computadoras,5);
+ mostrarMasNueva(computadoras,5);
+ mostrarMasVieja(computadoras,5);
+ return 0;
 }
