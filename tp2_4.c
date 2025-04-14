@@ -58,8 +58,20 @@ void mostrarMasNueva(Compu pcs[],int cantidad){
     }
     
 }
-
+void mostrarMasVieja(Compu pcs[],int cantidad){
+    int anio_mas_vieja = 9999;
+    int index_pc_mas_vieja = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+      if (pcs[i].anio < anio_mas_vieja){
+        anio_mas_vieja = pcs[i].anio;
+        index_pc_mas_vieja= i;
+      }
+      printf("pc mas vieja : \n");
+      mostrarCaracteristicasPc(pcs[index_pc_mas_vieja]);
+    }
+    
+}
 int main (){
-Compu computadoras[5];
 
 }
