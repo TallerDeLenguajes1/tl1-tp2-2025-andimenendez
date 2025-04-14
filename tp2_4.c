@@ -44,6 +44,20 @@ void mostrarCaracteristicasPc(Compu pc){
     printf("\n");
 }
 
+void mostrarMasNueva(Compu pcs[],int cantidad){
+    int anio_mas_nueva = 0;
+    int index_pc_mas_nueva = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+      if (pcs[i].anio > anio_mas_nueva){
+        anio_mas_nueva = pcs[i].anio;
+        index_pc_mas_nueva= i;
+      }
+      printf("pc mas nueva: \n");
+      mostrarCaracteristicasPc(pcs[index_pc_mas_nueva]);
+    }
+    
+}
 
 int main (){
 Compu computadoras[5];
